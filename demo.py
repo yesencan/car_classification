@@ -36,8 +36,10 @@ if __name__ == '__main__':
         preds = model.predict(rgb_img)
         prob = np.max(preds)
         class_id = np.argmax(preds)
-        text = ('Predict: {}, prob: {}'.format(class_names[class_id][0][0], prob))
-        results.append({'label': class_names[class_id][0][0], 'prob': '{:.4}'.format(prob)})
+        text = ('Predict: {}, prob: {}'.format(
+            class_names[class_id][0][0], prob))
+        results.append(
+            {'label': class_names[class_id][0][0], 'prob': '{:.4}'.format(prob)})
         cv.imwrite('images/{}_out.png'.format(i), bgr_img)
 
     print(results)
